@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tasks:</h1>
+
+    <ul id="tasks"></ul>
+
+    <form>
+        <input type="text" id="inputTask">
+        <input type="submit" id = "submit">
+    </form>
+    
+
+    <script>
+        // Page loader...
+        document.addEventListener("DOMContentLoaded", function(){
+            // Disable the submit button by default...
+            document.querySelector('#submit').disabled = true;
+
+
+            // Enable the submit button once a use begins to type
+            document.querySelector('#inputTask').onkeyup = () => {
+                if (document.querySelector('#inputTask').value.length > 0) {
+                    document.querySelector('#submit').disabled = false;
+                } else {
+                    document.querySelector('#submit').disabled = true;
+                }
+            }
+
+            
+            // Listen for button click...
+            let form = document.querySelector('form');
+
+            form.addEventListener('submit', (e) => {
+                // Prevent page reload...
+                e.preventDefault();
+
+                let tasks = document.querySelector('#tasks');
+                let task = document.querySelector('#inputTask');
+                let taskItem = task.value;
+                let newTask = document.createElement('li');
+                    newTask.innerHTML = taskItem;
+
+                // Add task to list...
+                tasks.append(newTask);
+
+                // Clear the input box...
+                task.value = '';
+
+
+                // Re-disable the submit button...
+                document.querySelector('#submit').disabled = true;
+
+                return false;
+            });
+        });
+    </script>
+
+</body>
+</html>
