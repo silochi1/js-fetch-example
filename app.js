@@ -23,4 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
             document.querySelector('body').appendChild(currencyEl);
         });
     })
+    .catch(error => {
+        console.log('Error:', error)
+    });
 }); 
