@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(typeof(data));
         console.log(data);
 
-        // Loop through the 'cuurrencies' object
+        // Loop through the 'currencies' object
         const currencies = data;
         Object.keys(currencies).forEach(key => {
             let currencyData    = `${key} : ${currencies[key]}`;
